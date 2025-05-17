@@ -1,0 +1,20 @@
+{
+	"Drizzle sqlite-core table": {
+		"prefix": ["dzsqtb"],
+		"body": [
+			"export const ${1/(.*)/${1:/camelcase}/} = sqliteTable(\"${1:table}\", {",
+			"  $0",
+			"});"
+		]
+	},
+  "Tanstack start createServerFn": {
+    "prefix": ["tsssf"],
+    "body": [
+      "const ${1} = createServerFn({ method: \"${2|GET,POST|}\" })",
+      "  .validator(z.object({ $0 }))",
+      "  .handler(async ({ data }) => {",
+      "",
+      "  });"
+    ]
+  }
+}
