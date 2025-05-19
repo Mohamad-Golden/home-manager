@@ -51,6 +51,7 @@
     ./vim-dadbod-ui.nix
     ./vim-dadbod.nix
     ./web-devicons.nix
+    ./treesitter-context.nix
   ];
 
   programs.nixvim = {
