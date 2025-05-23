@@ -3,6 +3,7 @@
 {
   imports = [
     ./nixvim/nixvim.nix
+    ./shell/shell.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -26,6 +27,9 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     eslint_d
+    tmux
+    zsh
+    atuin
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

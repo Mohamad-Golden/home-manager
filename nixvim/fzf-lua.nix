@@ -12,7 +12,6 @@
         action = "oldfiles";
         mode = [
           "n"
-          "i"
         ];
       };
       # "<leader><space>" = {
@@ -22,7 +21,6 @@
         action = "files";
         mode = [
           "n"
-          "i"
         ];
       };
       # "<leader>gf" = {
