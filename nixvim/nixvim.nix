@@ -52,6 +52,7 @@
     ./vim-dadbod.nix
     ./web-devicons.nix
     ./treesitter-context.nix
+    ./multicursors.nix
   ];
 
   programs.nixvim = {
