@@ -6,6 +6,14 @@
         cwd_only = true;
         include_current_session = true;
       };
+      files = {
+        fd_opts = {
+          __raw = "[[--color=never --hidden --type f --type l --exclude .git --exclude *.svg]]";
+        };
+      };
+      # grep = {
+      #   rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e";
+      # };
     };
     keymaps = {
       "<leader>f" = {

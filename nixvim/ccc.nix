@@ -1,6 +1,6 @@
 {
   programs.nixvim.plugins.ccc = {
-    enable = true;
+    enable = false;
     settings = {
       highlighter = {
         auto_enable = true;

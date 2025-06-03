@@ -16,5 +16,15 @@
         hash = "sha256-kbTvrKIQty+lFx6rscc8bDCguRtwdjschpxE+EKGg38=";
       };
     })
+    pkgs.vimPlugins.go-nvim
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "go-playground";
+      src = pkgs.fetchFromGitHub {
+        owner = "cappyzawa";
+        repo = "go-playground.nvim";
+        rev = "v0.2.1";
+        hash = "sha256-Kh5dp4PUIoP7/bqczi9awXhseL8kEjIlwyhmqILqtfg=";
+      };
+    })
   ];
 }

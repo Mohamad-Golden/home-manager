@@ -2,9 +2,12 @@
   imports = [
     ./auto-cmd.nix
     ./auto-groups.nix
+    ./blink-cmp.nix
     ./catppuccin.nix
     ./ccc.nix
+    ./cmp-nvim-lsp-signature-help.nix
     ./cmp.nix
+    ./colorizer.nix
     ./comment.nix
     ./conform.nix
     ./diagnostics.nix
@@ -26,6 +29,7 @@
     ./lastplace.nix
     ./lint.nix
     ./lsp.nix
+    ./lspkind.nix
     ./lualine.nix
     ./luasnip.nix
     ./markdown-preview.nix
@@ -51,8 +55,6 @@
     ./vim-dadbod-ui.nix
     ./vim-dadbod.nix
     ./web-devicons.nix
-    ./treesitter-context.nix
-    ./multicursors.nix
   ];
 
   programs.nixvim = {
@@ -60,90 +62,37 @@
     defaultEditor = true;
 
     extraConfigLua = ''
-            vim.api.nvim_create_user_command("Formatc", function(args)
-              local range = nil
-              if args.count ~= -1 then
-                local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
-                range = {
-                  start = { args.line1, 0 },
-                  ["end"] = { args.line2, end_line:len() },
-                }
-              end
-              require("conform").format({ async = true, lsp_format = "fallback", range = range })
-            end, { range = true })
-
-            vim.ui.select = require('fastaction').select
-
-            require('focus').setup({
-              enable = false,
-              autoresize = {
-                width = 120
-              }
-            })
-
-            require('typecheck').setup({
-              debug = true,
-              mode = "trouble"
-            })
-
-            vim.lsp.set_log_level("off")
-
-      local function get_hash()
-        -- The get_hash() is utilised to create an independent "store"
-        -- By default `fre --add` adds to global history, in order to restrict this to
-        -- current directory we can create a hash which will keep history separate.
-        -- With this in mind, we can also append git branch to make sorting based on 
-        -- Current dir + git branch
-        local str = 'echo "dir:' .. vim.fn.getcwd()
-        if vim.b.gitsigns_head then
-          str = str .. ';git:' .. vim.b.gitsigns_head .. '"'
+      vim.api.nvim_create_user_command("Formatc", function(args)
+        local range = nil
+        if args.count ~= -1 then
+          local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+          range = {
+            start = { args.line1, 0 },
+            ["end"] = { args.line2, end_line:len() },
+          }
         end
-        vim.print(str)
-        local hash = vim.fn.system(str .. " | md5sum | awk '{print $1}'")
-        return hash
-      end
+        require("conform").format({ async = true, lsp_format = "fallback", range = range })
+      end, { range = true })
 
-      local function fzf_mru(opts)
-        local fzf = require 'fzf-lua'
-        opts = fzf.config.normalize_opts(opts, fzf.config.globals.files)
-        local hash = get_hash()
-        opts.cmd = 'command cat <(fre --sorted --store_name ' .. hash .. ") <(fd -t f) | awk '!x[$0]++'" -- | the awk command is used to filter out duplicates.
-        opts.fzf_opts = vim.tbl_extend('force', opts.fzf_opts, {
-          ['--tiebreak'] = 'index' -- make sure that items towards top are from history
-        })
-        opts.actions = vim.tbl_extend('force', opts.actions or {}, {
-          ['ctrl-d'] = {
-            -- Ctrl-d to remove from history
-            function(sel)
-              if #sel < 1 then return end
-              vim.fn.system('fre --delete ' .. sel[1] .. ' --store_name ' .. hash)
-            end,
-            -- This will refresh the list
-            fzf.actions.resume,
-          },
-          -- TODO: Don't know why this didn't work
-          -- ["default"] = {
-          --   fn = function(selected)
-          --     if #selected < 2 then
-          --       return
-          --     end
-          --     print('exec:', selected[2])
-          --     vim.cmd('!fre --add ' .. selected[2])
-          --     fzf.actions.file_edit_or_qf(selected)
-          --   end,
-          --   exec_silent = true,
-          -- },
-        })
+      vim.ui.select = require('fastaction').select
 
-        fzf.core.fzf_wrap(opts, opts.cmd, function(selected)
-          if not selected or #selected < 2 then return end
-          vim.fn.system('fre --add ' .. selected[2] .. ' --store_name ' .. hash)
-          fzf.actions.act(opts.actions, selected, opts)
-        end)()
-      end
+      require('focus').setup({
+        enable = false,
+        autoresize = {
+          width = 120
+        }
+      })
 
-      vim.api.nvim_create_user_command('FzfMru', fzf_mru, {})
-      vim.keymap.set("n","<C-p>", fzf_mru, {desc="Open Files"})
+      require('typecheck').setup({
+        debug = true,
+        mode = "trouble"
+      })
+
+      require('go').setup({
+        lsp_cfg = true,
+      })
+
+      vim.lsp.set_log_level("off")
     '';
 
     filetype = {

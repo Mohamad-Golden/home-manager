@@ -1,6 +1,6 @@
 {
   programs.nixvim.plugins.cmp = {
-    enable = true;
+    enable = false;
     autoEnableSources = true;
     settings = {
       snippet = {
@@ -60,7 +60,21 @@
         { name = "npm"; }
         { name = "dotenv"; }
         { name = "snippets"; }
+        { name = "nvim_lsp_signature_help"; }
       ];
+
+      # sorting = {
+      #   priority_weight = 2;
+      #   comparators = [
+      #     # "require('cmp.config.compare').exact"
+      #     "require('cmp.config.compare').kind"
+      #     "require('cmp.config.compare').score"
+      #     # "require('cmp.config.compare').locality"
+      #     # "require('cmp.config.compare').recently_used"
+      #     # "require('cmp.config.compare').length"
+      #     # "require('cmp.config.compare').order"
+      #   ];
+      # };
 
     };
   };

@@ -1,18 +1,22 @@
 {
   "Tanstack start createFileRoute": {
-    "prefix": ["tssfr"],
+    "prefix": [
+      "tssfr"
+    ],
     "body": [
-      "export const Route = createFileRoute(\"\/${1:$TM_FILENAME_BASE}\")({",
+      "export const Route = createFileRoute(\"/${1:$TM_FILENAME_BASE}\")({",
       "  component: ${2:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}},",
       "});"
     ]
   },
   "Tanstack start page": {
-    "prefix": ["tssp"],
+    "prefix": [
+      "tssp"
+    ],
     "body": [
       "import { createFileRoute } from \"@tanstack/react-router\";",
       "",
-      "export const Route = createFileRoute(\"\/${1:$TM_FILENAME_BASE}\")({",
+      "export const Route = createFileRoute(\"/${1:$TM_FILENAME_BASE}\")({",
       "  component: ${2:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}},",
       "});",
       "",
@@ -20,6 +24,20 @@
       "  return (",
       "    <div>",
       "      <div>${0:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}</div>",
+      "    </div>",
+      "  );",
+      "}"
+    ]
+  },
+  "React component": {
+    "prefix": [
+      "rc"
+    ],
+    "body": [
+      "export default function ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}() {",
+      "  return (",
+      "    <div>",
+      "      <div>${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}</div>",
       "    </div>",
       "  );",
       "}"

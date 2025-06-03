@@ -62,12 +62,21 @@
 
       tailwindcss = {
         enable = true;
+        package = null;
         filetypes = [
           "css"
           "scss"
           "javascriptreact"
           "typescriptreact"
         ];
+        settings = {
+          tailwindCSS = {
+            classFunctions = [
+              "cva"
+              "cx"
+            ];
+          };
+        };
       };
 
       bashls = {
@@ -90,6 +99,13 @@
         filetypes = [
           "sql"
         ];
+        package = null;
+        # cmd = [
+        #   "sqls"
+        #   "--config"
+        #   "vim.loop.cwd()"
+        #
+        # ];
       };
 
       ansiblels = {
@@ -106,12 +122,16 @@
         ];
       };
 
-      gopls = {
-        enable = true;
-        filetypes = [
-          "go"
-        ];
-      };
+      # gopls = {
+      #   enable = true;
+      #   filetypes = [
+      #     "go"
+      #   ];
+      # };
+
+      # golangci_lint_ls = {
+      #   enable = true;
+      # };
 
       dockerls = {
         enable = true;
@@ -130,7 +150,10 @@
 
       yamlls = {
         enable = true;
-        filetypes = [ "yaml" ];
+        filetypes = [
+          "yaml"
+          "yml"
+        ];
       };
 
       nixd = {
@@ -151,9 +174,6 @@
         enable = false;
       };
 
-      pyright = {
-        enable = true;
-      };
     };
   };
 

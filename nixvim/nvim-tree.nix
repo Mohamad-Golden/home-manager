@@ -30,6 +30,5 @@
       fullName = false;
       highlightModified = "all";
     };
-
   };
 }
