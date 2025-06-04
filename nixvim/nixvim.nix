@@ -55,6 +55,10 @@
     ./vim-dadbod-ui.nix
     ./vim-dadbod.nix
     ./web-devicons.nix
+    ./dap.nix
+    ./dap-view.nix
+    ./dap-python.nix
+    ./dap-virtual-text.nix
   ];
 
   programs.nixvim = {

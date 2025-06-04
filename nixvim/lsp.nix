@@ -174,6 +174,14 @@
         enable = false;
       };
 
+      pyright = {
+        enable = true;
+      };
+
+      ruff = {
+        enable = true;
+      };
+
     };
   };
 

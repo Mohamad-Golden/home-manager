@@ -5,5 +5,6 @@
     ./atuin.nix
     ./lazygit.nix
     ./go.nix
+    ./ruff.nix
   ];
 }

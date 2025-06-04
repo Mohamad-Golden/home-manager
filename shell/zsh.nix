@@ -29,6 +29,10 @@
       ];
     };
 
+    shellAliases = {
+      dpy = "python -m debugpy --listen 5678";
+    };
+
   };
 
   programs.bash = {

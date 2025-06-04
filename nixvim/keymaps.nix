@@ -163,5 +163,50 @@
       key = "jj";
       action = "<Esc>";
     }
+    {
+      mode = "n";
+      key = "<A-m>";
+      action = "<cmd>DapToggleBreakpoint<cr>";
+    }
+    {
+      mode = [
+        "n"
+        "i"
+      ];
+      key = "<A-n>";
+      action = "<cmd>DapStepOver<cr>";
+    }
+    {
+      mode = [
+        "n"
+        "i"
+      ];
+      key = "<A-c>";
+      action = "<cmd>DapContinue<cr>";
+    }
+    {
+      mode = [
+        "n"
+        "i"
+      ];
+      key = "<A-i>";
+      action = "<cmd>DapStepInto<cr>";
+    }
+    {
+      mode = [
+        "n"
+        "i"
+      ];
+      key = "<A-o>";
+      action = "<cmd>DapStepOut<cr>";
+    }
+    {
+      mode = [
+        "n"
+        "i"
+      ];
+      key = "<A-d>";
+      action = "<cmd>DapViewToggle<cr>";
+    }
   ];
 }
