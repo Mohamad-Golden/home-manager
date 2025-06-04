@@ -174,6 +174,10 @@
         enable = false;
       };
 
+      pyright = {
+        enable = true;
+      };
+
     };
   };
 
