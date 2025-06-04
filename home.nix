@@ -27,6 +27,7 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     eslint_d
+    golangci-lint
     httpie-desktop
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

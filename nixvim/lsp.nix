@@ -122,16 +122,16 @@
         ];
       };
 
-      # gopls = {
-      #   enable = true;
-      #   filetypes = [
-      #     "go"
-      #   ];
-      # };
+      gopls = {
+        enable = true;
+        filetypes = [
+          "go"
+        ];
+      };
 
-      # golangci_lint_ls = {
-      #   enable = true;
-      # };
+      golangci_lint_ls = {
+        enable = true;
+      };
 
       dockerls = {
         enable = true;
