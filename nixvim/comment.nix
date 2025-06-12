@@ -9,7 +9,7 @@
       };
       toggler = {
         block = "gbc";
-        line = "gcc";
+        line = "gc";
       };
     };
   };
