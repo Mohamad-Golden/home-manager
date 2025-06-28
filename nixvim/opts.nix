@@ -3,7 +3,6 @@
     conceallevel = 2;
     concealcursor = "n";
     number = true;
-    relativenumber = true;
     mouse = "a";
     showmode = false;
     clipboard = "unnamedplus";
