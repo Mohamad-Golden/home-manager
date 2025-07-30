@@ -12,14 +12,14 @@
       action = "<cmd>w<cr>";
     }
 
-    {
-      mode = "n";
-      key = "q";
-      action = "<cmd>bd<CR>";
-      options = {
-        desc = "Close Buffer";
-      };
-    }
+    # {
+    #   mode = "n";
+    #   key = "q";
+    #   action = "<cmd>bd<CR>";
+    #   options = {
+    #     desc = "Close Buffer";
+    #   };
+    # }
 
     {
       mode = [
