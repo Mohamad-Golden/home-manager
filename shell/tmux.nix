@@ -17,6 +17,8 @@
       bind-key -n M-L next-window
       # use terminal colors
       set-option -ga terminal-overrides ",xterm-256color:Tc"
+      set-window-option -g mode-keys vi
+      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
     '';
   };
 }
