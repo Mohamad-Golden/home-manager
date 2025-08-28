@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.nixvim.plugins.lsp = {
     enable = true;
@@ -180,6 +181,11 @@
 
       ruff = {
         enable = true;
+      };
+
+      intelephense = {
+        enable = true;
+        package = pkgs.nodePackages.intelephense;
       };
 
     };
